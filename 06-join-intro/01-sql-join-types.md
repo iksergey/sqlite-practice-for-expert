@@ -140,7 +140,30 @@ Cross Join возвращает все возможные комбинации �
   | Вера | Мячик    | Глеб | 5       |
 
 ```sql
+SELECT *
+FROM ChildrenToys ct
+CROSS JOIN ChildrenAges ca;
 
+-- или
+
+SELECT *
+FROM ChildrenToys, ChildrenAges;
+```
+
+
+### Замечание 
+
+```sql
+SELECT ct.Name, ct.Toy, ca.Age
+FROM ChildrenToys ct
+CROSS JOIN ChildrenAges ca ON ct.Name = ca.Name;
+```
+эквивалентен
+
+```sql
+SELECT ct.Name, ct.Toy, ca.Age
+FROM ChildrenToys ct
+INNER JOIN ChildrenAges ca ON ct.Name = ca.Name;
 ```
 
 Ещё про join'ы
